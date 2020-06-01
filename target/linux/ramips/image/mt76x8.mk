@@ -6,14 +6,16 @@ include ./common-tp-link.mk
 
 DEFAULT_SOC := mt7628an
 
-define Device/mt7628an_omentech_r1
-  IMAGE_SIZE := 7872K
-  DEVICE_VENDOR :=OMEN TECH
-  DEVICE_MODEL := OMEN ETH-WIFI GATEWAY
-  DEVICE_PACKAGES := uboot-envtools
-  DEVICE_VARIANT := R1
+define Device/omentech_r1
+  BLOCKSIZE := 64k
+  IMAGE_SIZE := 7872k
+  DEVICE_VENDOR := Omen Tech
+  DEVICE_MODEL := R1
+  DEVICE_VARIANT := V1
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-ledtrig-usbport
+  SUPPORTED_DEVICES += omentech_r1
 endef
-TARGET_DEVICES += mt7628an_omentech_r1
+TARGET_DEVICES += omentech_r1
 
 define Device/alfa-network_awusfree1
   IMAGE_SIZE := 7872k
