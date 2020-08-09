@@ -2,9 +2,21 @@
 
 #include "mt7628an.dtsi"
 
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+
 / {
 	compatible = "mediatek,mt7628an-eval-board", "mediatek,mt7628an-soc";
 	model = "Mediatek MT7628AN evaluation board";
+	
+	leds {
+			compatible = "gpio-leds";
+
+			can-led {
+				label = "can:led";
+				gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
+			};
+	};
 };
 
 &state_default {
@@ -13,6 +25,7 @@
 		function = "gpio";
 	};
 };
+
 
 &wmac {
 	status = "okay";

@@ -4,7 +4,7 @@
 
 / {
 	compatible = "mediatek,mt7628an-eval-board", "mediatek,mt7628an-soc";
-	model = "Omen-Tech MT7628AN Control board";
+	model = "Mediatek MT7628AN evaluation board";
 };
 
 &state_default {
