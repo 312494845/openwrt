@@ -142,9 +142,10 @@
 			#size-cells = <0>;
 
 			pinctrl-names = "default";
-			pinctrl-0 = <&spi_pins>;
+			pinctrl-0 = <&spi_pins>,<&spi_cs1_pins>;
 
 			status = "disabled";
+			
 		};
 
 		uartlite: uartlite@c00 {

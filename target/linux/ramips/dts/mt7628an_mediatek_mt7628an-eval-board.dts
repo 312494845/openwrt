@@ -12,16 +12,28 @@
 	leds {
 			compatible = "gpio-leds";
 
-			can-led {
-				label = "can:led";
-				gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
+			can-pwr {
+				label = "can:pwr";
+				gpios = <&gpio 11 GPIO_ACTIVE_HIGH>;
+			};
+			can-p39 {
+				label = "can:p39";
+				gpios = <&gpio 39 GPIO_ACTIVE_HIGH>;
+			};
+			can-p40 {
+				label = "can:p40";
+				gpios = <&gpio 40 GPIO_ACTIVE_HIGH>;
+			};
+			can-p1 {
+				label = "can:p1";
+				gpios = <&gpio 1 GPIO_ACTIVE_HIGH>;
 			};
 	};
 };
 
 &state_default {
 	gpio {
-		groups = "i2c";
+		groups = "i2c","i2s";
 		function = "gpio";
 	};
 };
@@ -69,8 +81,26 @@
 			};
 		};
 	};
+	
+	can0:can@1{
+		compatible = "microchip,mcp2515";
+		reg = <0>;
+		linux,modalias = "mcp2510","mcp2515";
+		use-default-sizes;
+		spi-max-frequency = <4000000>;
+		clocks = <&mcp251x_clock>;
+		interrupt-parent = <&gpio>;
+		interrupts = <29 0x02>;
+	};
+	
+	mcp251x_clock:mcp2515{
+		compatible = "fixed-clock";
+		clock-frequency = <4000000>;
+	};
 };
+
 
 &wmac {
 	status = "okay";
 };
+
