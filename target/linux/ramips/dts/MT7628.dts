@@ -19,13 +19,18 @@
 				label = "can-pwr";
 				gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
 			};
+			
+			trans-485 {
+				label = "trans-485";
+				gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+			};
 	};
 };
 
 &pinctrl {
 	state_default: pinctrl0 {
 		gpio {
-			ralink,group = "i2c";
+			ralink,group = "i2c","i2s";
 			ralink,function = "gpio";
 		};
 	};

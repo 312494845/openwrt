@@ -280,6 +280,8 @@
 		pinctrl-0 = <&state_default>;
 
 		state_default: pinctrl0 {
+			ralink,group = "gpio","i2s","i2c";
+	    		ralink,function = "gpio";
 		};
 
 		spi_pins: spi_pins {
